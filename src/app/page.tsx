@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>FlavorSync </main>;
+  return <main>Home </main>;
 }
