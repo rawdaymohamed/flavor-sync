@@ -7,7 +7,7 @@ import CartIcon from "./CartIcon";
 const Navbar = () => {
   const user = false;
   return (
-    <div className="h-12 flex justify-between items-center p-4 text-red-500 border-b-2 border-red-500 md:h-16 lg:px-20 xl:px-40">
+    <div className="h-12 md:h-16 flex justify-between items-center p-4 text-red-500 border-b-2 border-red-500 lg:px-20 xl:px-40">
       {/* Left Links */}
       <div className="hidden md:flex md:gap-5  flex-1">
         <Link href="/menu">Menu</Link>
