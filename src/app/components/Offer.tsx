@@ -20,7 +20,7 @@ const Offer = () => {
         </button>
       </div>
       {/* Image container */}
-      <div className="relative w-full flex-1 md:h-1/2">
+      <div className="relative w-full flex-1 md:h-full">
         <Image src="/offerProduct.png" alt="" fill className="object-contain" />
       </div>
     </div>
