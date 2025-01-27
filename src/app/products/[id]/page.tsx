@@ -2,8 +2,13 @@ import Image from "next/image";
 import React from "react";
 import { pizzas } from "@/app/data";
 import Price from "@/app/components/Price";
-const SingleProductPage = ({ params }: { params: { id: string } }) => {
-  const product = pizzas.find((pizza) => pizza.id === Number(params.id));
+const SingleProductPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
+  const product = pizzas.find((pizza) => pizza.id === Number(id));
   if (!product) return <div>Product not found</div>;
   return (
     <div className="flex flex-col md:flex-row gap-5 md:gap-8 items-center h-[calc(100vh-6rem)] p-4 lg:px-20 xl:px-40">
