@@ -5,7 +5,7 @@ import { FaGoogle, FaFacebookF } from "react-icons/fa";
 const LoginPage = () => {
   return (
     <div className="flex justify-center items-center h-[calc(100vh-9rem)] md:h-[calc(100vh-11rem)] w-screen p-4 lg:px-20 xl:px-40">
-      <div className="flex flex-col md:flex-row md:shadow-2xl h-full md:h-[520px] w-full md:w-[850px] rounded-xl ">
+      <div className="flex flex-col md:flex-row md:shadow-2xl h-full  md:h-auto md:max-h-[90vh]  w-full md:w-[850px] rounded-xl ">
         {/* Image container */}
         <div className="relative w-full md:w-1/2 ">
           <Image
