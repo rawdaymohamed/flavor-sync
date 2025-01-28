@@ -1,10 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## FlavorSync
+
+A fully responsive restaurant frontend web application built using Next.js and Tailwind CSS
+
+![](./demo/flavorSync-flavor-sync-rawda-yasser-mohamed3.png)
+![](./demo/flavorSync-flavor-sync-rawda-yasser-mohamed2.png)
+![](./demo/flavorSync-flavor-sync-rawda-yasser-mohamed1.png)
+
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+git clone https://github.dev/rawdaymohamed/flavor-sync
+
+cd flavor-sync
+
 npm run dev
 # or
 yarn dev
