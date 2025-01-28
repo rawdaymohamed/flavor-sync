@@ -22,7 +22,11 @@ const Navbar = () => {
       {/* Right Links */}
 
       <div className="hidden md:flex md:gap-5 items-center text-center">
-        {!user ? <Link href="/menu">Login</Link> : <Link href="/">Orders</Link>}
+        {!user ? (
+          <Link href="/login">Login</Link>
+        ) : (
+          <Link href="/">Orders</Link>
+        )}
         <Link href="/cart">
           <CartIcon />
         </Link>
