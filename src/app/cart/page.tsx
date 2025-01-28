@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { IoCloseSharp } from "react-icons/io5";
+import Link from "next/link";
 const CartPage = () => {
   return (
     <div className="flex flex-col md:flex-row md:justify-between p-4 lg:px-20 xl:px-40 w-full h-[calc(100vh-6rem)] md:h-[calc(100vh-8rem)] gap-20 text-sm md:text-base lg:text-xl">
@@ -101,9 +102,12 @@ const CartPage = () => {
             <span className="uppercase">Total(Inc VAT)</span>
             <strong>$100.00</strong>
           </div>
-          <button className="uppercase self-end bg-red-500 hover:bg-red-700 px-6 py-2 w-1/2 rounded-sm text-slate-100">
+          <Link
+            href="/orders"
+            className="uppercase self-end text-center bg-red-500 hover:bg-red-700 px-6 py-2 w-1/2 rounded-sm text-slate-100"
+          >
             Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>
