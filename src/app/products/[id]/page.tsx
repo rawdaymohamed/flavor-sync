@@ -11,7 +11,9 @@ const SingleProductPage = async ({
   const product = pizzas.find((pizza) => pizza.id === Number(id));
   if (!product) return <div>Product not found</div>;
   return (
+
     <div className="flex flex-col md:flex-row gap-5 md:gap-8 items-center h-[calc(100vh-6rem)] p-4 lg:px-20 xl:px-40 mb-5">
+
       {/* Image container */}
       <div className="w-full h-1/2 relative lg:h-3/4">
         <Image src={product.img} fill className="object-contain" alt="" />
