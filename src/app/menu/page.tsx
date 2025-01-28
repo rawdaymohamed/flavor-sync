@@ -16,8 +16,10 @@ const MenuPage = () => {
             className={`flex flex-col gap-3 p-4 w-1/2`}
             style={{ color: `${item.color}` }}
           >
-            <h1 className="font-extrabold text-lg uppercase">{item.title}</h1>
-            <p className="text-sm overflow-hidden">{item.desc}</p>
+            <h1 className="font-extrabold text-lg lg:text-xl uppercase">
+              {item.title}
+            </h1>
+            <p className="text-sm overflow-hidden lg:text-base">{item.desc}</p>
           </div>
         </Link>
       ))}
