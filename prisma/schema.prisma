@@ -35,6 +35,7 @@ model Product {
   isFeatured   Boolean
   category     Category @relation(fields: [categorySlug], references: [slug])
   categorySlug String
+  options Json[]
 }
 
 model Order {

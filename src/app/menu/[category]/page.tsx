@@ -1,12 +1,26 @@
-import { pizzas } from "@/app/data";
+import { Products } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-const CategoryPage = () => {
+const getData = async (category: string) => {
+  const res = await fetch(
+    `http://localhost:3000/api/products?category=${category}`,
+    {
+      cache: "no-cache",
+    }
+  );
+  if (!res.ok) throw new Error("Failed!");
+  return res.json();
+};
+type Props = {
+  params: { category: string };
+};
+const CategoryPage = async ({ params }: Props) => {
+  const products: Products = await getData(params.category);
   return (
     <div className="flex flex-wrap text-red-500 ">
-      {pizzas.map((item) => (
+      {products.map((item) => (
         <Link
           href={`/products/${item.id}`}
           key={item.id}
@@ -14,7 +28,7 @@ const CategoryPage = () => {
         >
           {/* Image container */}
           <div className="relative w-full h-[90%]">
-            <Image src={item.img} alt="" fill className="object-contain" />
+            <Image src={item.imageURL} alt="" fill className="object-contain" />
           </div>
           {/* Text container */}
           <div className="flex justify-between items-center font-bold">

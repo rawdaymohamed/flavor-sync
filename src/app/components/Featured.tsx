@@ -1,7 +1,15 @@
 import Image from "next/image";
 import React from "react";
-import { featuredProducts } from "../data";
-const Featured = () => {
+import { Products } from "@/types/types";
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-cache",
+  });
+  if (!res.ok) throw new Error("Failed!");
+  return res.json();
+};
+const Featured = async() => {
+  const featuredProducts:Products = await getData();
   return (
     <div className="w-screen overflow-x-scroll text-red-500">
       {/* Wrapper */}
@@ -14,12 +22,12 @@ const Featured = () => {
           >
             {/* Image Container */}
             <div className="relative flex-1 w-full hover:rotate-[60deg] transition duration-300">
-              <Image src={item.img} fill alt="" className="object-contain" />
+              <Image src={item.imageURL} fill alt="" className="object-contain" />
             </div>
             {/* Text Container */}
             <div className="flex flex-col gap-5 items-center justify-center flex-1">
               <h1 className="text-xl font-bold uppercase">{item.title}</h1>
-              <p className="px-4 text-center">{item.desc}</p>
+              <p className="px-4 text-center">{item.description}</p>
               <p className="text-xl font-bold">${item.price}</p>
               <button className="bg-red-500 px-4 py-2 text-slate-100 rounded-sm self-center">
                 Add to Cart
