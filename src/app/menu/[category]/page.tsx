@@ -13,11 +13,11 @@ const getData = async (category: string) => {
   if (!res.ok) throw new Error("Failed!");
   return res.json();
 };
-type Props = {
-  params: { category: string };
-};
-const CategoryPage = async ({ params }: Props) => {
-  const products: Products = await getData(params.category);
+
+type Params = Promise<{ category: string }>;
+const CategoryPage = async ({ params }: { params: Params }) => {
+  const { category } = await params;
+  const products: Products = await getData(category);
   return (
     <div className="flex flex-wrap text-red-500 ">
       {products.map((item) => (
