@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Menu } from "@/types/types";
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/categories", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/categories`, {
     cache: "no-cache",
   });
   if (!res.ok) throw new Error("Failed!");

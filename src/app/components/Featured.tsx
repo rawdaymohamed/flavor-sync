@@ -2,14 +2,14 @@ import Image from "next/image";
 import React from "react";
 import { Products } from "@/types/types";
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`, {
     cache: "no-cache",
   });
   if (!res.ok) throw new Error("Failed!");
   return res.json();
 };
-const Featured = async() => {
-  const featuredProducts:Products = await getData();
+const Featured = async () => {
+  const featuredProducts: Products = await getData();
   return (
     <div className="w-screen overflow-x-scroll text-red-500">
       {/* Wrapper */}
@@ -22,7 +22,12 @@ const Featured = async() => {
           >
             {/* Image Container */}
             <div className="relative flex-1 w-full hover:rotate-[60deg] transition duration-300">
-              <Image src={item.imageURL} fill alt="" className="object-contain" />
+              <Image
+                src={item.imageURL}
+                fill
+                alt=""
+                className="object-contain"
+              />
             </div>
             {/* Text Container */}
             <div className="flex flex-col gap-5 items-center justify-center flex-1">

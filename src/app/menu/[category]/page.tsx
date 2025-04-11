@@ -5,7 +5,7 @@ import React from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 const getData = async (category: string) => {
   const res = await fetch(
-    `http://localhost:3000/api/products?category=${category}`,
+    `${process.env.NEXT_PUBLIC_URL}/api/products?category=${category}`,
     {
       cache: "no-cache",
     }
