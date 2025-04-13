@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Notification from "@/app/components/Notification";
+import { SessionProvider } from "next-auth/react";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -24,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable}  antialiased`}>
-        <Notification />
-        <Navbar />
-        {children}
-        <Footer />
+        <SessionProvider>
+          <Notification />
+          <Navbar />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

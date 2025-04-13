@@ -3,9 +3,10 @@ import React from "react";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
 import CartIcon from "./CartIcon";
-
-const Navbar = () => {
-  const user = false;
+import { auth } from "@/auth";
+const Navbar = async() => {
+  const session = await auth()
+  const user = session?.user;
   return (
     <div className="h-12 md:h-16 flex justify-between items-center p-4 text-red-500 border-b-2 border-red-500 lg:px-20 xl:px-40">
       {/* Left Links */}

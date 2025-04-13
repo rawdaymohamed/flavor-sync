@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import CartIcon from "./CartIcon";
 
+import { useSession } from "next-auth/react";
 const links = [
   { id: 1, title: "Homepage", url: "/" },
   { id: 2, title: "Menu", url: "/menu" },
@@ -12,8 +13,10 @@ const links = [
   { id: 4, title: "Contact", url: "/" },
 ];
 const MobileMenu = () => {
+  const { data } = useSession();
   const [open, setOpen] = useState(false);
-  const user = false;
+
+  const user = data?.user;
   return (
     <div>
       {open ? (
