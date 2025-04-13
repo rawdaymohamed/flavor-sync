@@ -4,8 +4,8 @@ import MobileMenu from "./MobileMenu";
 import Image from "next/image";
 import CartIcon from "./CartIcon";
 import { auth } from "@/auth";
-const Navbar = async() => {
-  const session = await auth()
+const Navbar = async () => {
+  const session = await auth();
   const user = session?.user;
   return (
     <div className="h-12 md:h-16 flex justify-between items-center p-4 text-red-500 border-b-2 border-red-500 lg:px-20 xl:px-40">
@@ -24,13 +24,16 @@ const Navbar = async() => {
 
       <div className="hidden md:flex md:gap-5 items-center text-center">
         {!user ? (
-          <Link href="/login">Login</Link>
+          <>
+            <Link href="/login">Login</Link>{" "}
+          </>
         ) : (
           <Link href="/">Orders</Link>
         )}
         <Link href="/cart">
           <CartIcon />
         </Link>
+        {user && <Link href="/logout">Logout</Link>}
         <div className="flex gap-3 bg-orange-300 p-2  rounded-md md:absolute top-1 right-2 lg:static">
           <Image src="/phone.png" width={20} height={20} alt="" />
           <span>123 456 78</span>

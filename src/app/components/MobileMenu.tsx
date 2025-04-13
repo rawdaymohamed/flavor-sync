@@ -50,13 +50,20 @@ const MobileMenu = () => {
               Login
             </Link>
           ) : (
-            <Link href="/orders" onClick={() => setOpen(false)}>
-              Orders
-            </Link>
+            <>
+              <Link href="/orders" onClick={() => setOpen(false)}>
+                Orders
+              </Link>
+            </>
           )}
           <Link href="/cart" onClick={() => setOpen(false)}>
             <CartIcon />
           </Link>
+          {user && (
+            <Link href="/logout" onClick={() => setOpen(false)}>
+              Logout
+            </Link>
+          )}
         </div>
       )}
     </div>
