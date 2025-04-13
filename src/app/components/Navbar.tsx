@@ -3,7 +3,7 @@ import React from "react";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
 import CartIcon from "./CartIcon";
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
 const Navbar = async () => {
   const session = await auth();
   const user = session?.user;
@@ -33,7 +33,16 @@ const Navbar = async () => {
         <Link href="/cart">
           <CartIcon />
         </Link>
-        {user && <Link href="/logout">Logout</Link>}
+        {user && (
+          <form
+            action={async () => {
+              "use server";
+              await signOut();
+            }}
+          >
+            <button type="submit">Logout</button>
+          </form>
+        )}
         <div className="flex gap-3 bg-orange-300 p-2  rounded-md md:absolute top-1 right-2 lg:static">
           <Image src="/phone.png" width={20} height={20} alt="" />
           <span>123 456 78</span>

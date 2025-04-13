@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import CartIcon from "./CartIcon";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 const links = [
   { id: 1, title: "Homepage", url: "/" },
   { id: 2, title: "Menu", url: "/menu" },
@@ -60,9 +60,14 @@ const MobileMenu = () => {
             <CartIcon />
           </Link>
           {user && (
-            <Link href="/logout" onClick={() => setOpen(false)}>
+            <button
+              onClick={() => {
+                signOut();
+                setOpen(false);
+              }}
+            >
               Logout
-            </Link>
+            </button>
           )}
         </div>
       )}
