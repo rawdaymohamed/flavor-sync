@@ -23,17 +23,11 @@ const Navbar = async () => {
       {/* Right Links */}
 
       <div className="hidden md:flex md:gap-5 items-center text-center">
-        {!user ? (
-          <>
-            <Link href="/login">Login</Link>{" "}
-          </>
-        ) : (
-          <Link href="/">Orders</Link>
-        )}
+        {user && <Link href="/">Orders</Link>}
         <Link href="/cart">
           <CartIcon />
         </Link>
-        {user && (
+        {user ? (
           <form
             action={async () => {
               "use server";
@@ -42,6 +36,8 @@ const Navbar = async () => {
           >
             <button type="submit">Logout</button>
           </form>
+        ) : (
+          <Link href="/login">Login</Link>
         )}
         <div className="flex gap-3 bg-orange-300 p-2  rounded-md md:absolute top-1 right-2 lg:static">
           <Image src="/phone.png" width={20} height={20} alt="" />
