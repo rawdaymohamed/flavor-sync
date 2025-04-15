@@ -16,14 +16,14 @@ const Navbar = async () => {
         <Link href="/">Contact</Link>
       </div>
       {/* Logo */}
-      <div className="text-xl font-bold flex-1">
+      <div className="text-xl font-bold text-center flex-1">
         <Link href="/">FlavorSync</Link>
       </div>
 
       {/* Right Links */}
 
       <div className="hidden md:flex md:gap-5 items-center text-center">
-        {user && <Link href="/">Orders</Link>}
+        {user && <Link href="/orders">Orders</Link>}
         <Link href="/cart">
           <CartIcon />
         </Link>
