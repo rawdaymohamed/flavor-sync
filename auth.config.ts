@@ -1,7 +1,7 @@
-import type { Session, User, NextAuthConfig, JWT } from "next-auth";
+import type { JWT } from "next-auth/jwt";
+import type { Session, NextAuthConfig } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
-
 const authConfig: NextAuthConfig = {
   providers: [
     GoogleProvider({
