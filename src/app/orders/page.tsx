@@ -75,7 +75,7 @@ const OrdersPage = () => {
     } else if (authStatus === "authenticated") {
       refetch(); // fetch orders after authentication
     }
-  }, [authStatus]);
+  }, [authStatus, router, refetch]);
 
   if (authStatus === "loading" || queryStatus === "pending") {
     return <>Loading...</>;

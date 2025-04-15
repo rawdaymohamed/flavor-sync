@@ -16,7 +16,7 @@ const Navbar = async () => {
         <Link href="/">Contact</Link>
       </div>
       {/* Logo */}
-      <div className="text-xl font-bold text-center flex-1">
+      <div className="text-xl font-bold flex-1">
         <Link href="/">FlavorSync</Link>
       </div>
 
