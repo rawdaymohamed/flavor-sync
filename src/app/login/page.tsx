@@ -20,7 +20,7 @@ const LoginPage = async () => {
           />
         </div>
         {/* Form container */}
-        <div className="w-full md:w-1/2 flex flex-col p-8 gap-8 justify-center text-gray-700">
+        <div className="w-full md:w-1/2 flex flex-col p-8 gap-6 justify-center text-gray-700">
           <h1 className="font-bold text-2xl">Welcome</h1>
           <p> Login into your account or create a new one</p>
           <form
@@ -29,14 +29,14 @@ const LoginPage = async () => {
               await signIn("google");
             }}
           >
-            <button className="flex gap-5 items-center p-2 rounded-sm ring-1 ring-gray-300">
+            <button className="flex gap-5 items-center p-3 w-full rounded-sm ring-1 ring-gray-300">
               <FaGoogle />
               <span>Sign in with Google</span>
             </button>
           </form>
-          <button className="flex gap-5 items-center p-2 rounded-sm ring-1 ring-gray-300">
+          <button className="w-full flex gap-5 items-center p-3 rounded-sm ring-1 ring-gray-300">
             <FaFacebookF />
-            <span>Sign in with Google</span>
+            <span>Sign in with Facebook</span>
           </button>
           <div className="flex gap-2">
             <span>Have a problem?</span>
