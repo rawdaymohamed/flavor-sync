@@ -4,9 +4,9 @@ import Image from "next/image";
 import { IoCloseSharp } from "react-icons/io5";
 import Link from "next/link";
 import { useCartStore } from "@/lib/store";
-import { ImInsertTemplate } from "react-icons/im";
+
 const CartPage = () => {
-  const { products, totalItems, totalPrice, addToCart, removeFromCart } = useCartStore();
+  const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
   return (
     <div className="flex flex-col md:flex-row md:justify-between p-4 lg:px-20 xl:px-40 w-full h-[calc(100vh-6rem)] md:h-[calc(100vh-8rem)] gap-20 text-sm md:text-base lg:text-xl">
       {/* Products container */}
