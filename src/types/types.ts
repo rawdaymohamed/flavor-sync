@@ -18,6 +18,17 @@ export type Products = {
   isFeatured: boolean;
   options?: [{ title: string; additionalPrice: number }];
 }[];
+export type Product = {
+  id: string;
+  createdAt: Date;
+  title: string;
+  description: string;
+  price: number;
+  imageURL: string;
+  slug: string;
+  isFeatured: boolean;
+  options?: [{ title: string; additionalPrice: number }];
+};
 
 export type Order = {
   id: string;

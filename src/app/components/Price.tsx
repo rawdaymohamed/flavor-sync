@@ -1,8 +1,10 @@
 "use client";
+
+import { Product } from "@/types/types";
 import React, { useEffect, useState } from "react";
-import { Product } from "../data";
+
 interface PriceProps {
-  product: Product;
+  product: Product
 }
 const updateColor = (selectedOptionIndex: number, i: number) => {
   return selectedOptionIndex === i ? "#f87171" : "#f1f5f9";
@@ -16,24 +18,35 @@ const Price = ({ product }: PriceProps) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
 
   useEffect(() => {
-    setTotalPrice(
-      quantity *
-        (product.options
-          ? product.price + product.options[selectedOptionIndex].additionalPrice
-          : product.price)
-    );
-  }, [quantity, product.price, product.options, selectedOptionIndex]);
+    if (product.options?.length) {
+
+      setTotalPrice(
+        Number(quantity) * (Number(product.price) + Number(product.options[selectedOptionIndex].additionalPrice))
+      );
+    } else {
+      setTotalPrice(quantity * product.price);
+    }
+  }, [product.price, quantity, selectedOptionIndex, product.options]);
 
   const increaseQuantity = () => {
-    if (quantity < 10) setQuantity(quantity + 1);
+    if (quantity < 10) {
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+
+    }
   };
+
   const decreaseQuantity = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
+    if (quantity > 1) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+
+    }
   };
   return (
     <>
       <p className="font-extrabold text-2xl text-red-500">
-        ${totalPrice.toFixed(2)}
+        ${totalPrice}
       </p>
       {product.options && (
         <div className="flex gap-4">
