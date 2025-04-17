@@ -39,11 +39,19 @@ export type Order = {
   products: CartItem[];
   intendId?: string;
 };
+
 export type CartItem = {
   id: string;
   title: string;
-  imageURL: string;
+  imageURL?: string;
   price: number;
   optionTitle?: string;
   quantity: number;
+};
+export type CartState = {
+  products: CartItem[];
+  totalItems: number;
+  totalPrice: number;
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (item: CartItem) => void;
 };
