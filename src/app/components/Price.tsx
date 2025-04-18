@@ -31,6 +31,9 @@ const Price = ({ product }: PriceProps) => {
     toast.success("The product successfully added to the cart")
   }
   useEffect(() => {
+    useCartStore.persist.rehydrate()
+  }, [])
+  useEffect(() => {
     if (product.options?.length) {
 
       setTotalPrice(

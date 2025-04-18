@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Price from "@/app/components/Price";
 import { Product } from "@/types/types";
+import DeleteButton from "@/app/components/DeleteButton";
 
 const SingleProductPage = async ({
   params,
@@ -20,7 +21,7 @@ const SingleProductPage = async ({
   if (!product) return <div>Product not found</div>;
   return (
 
-    <div className="flex flex-col md:flex-row gap-5 md:gap-8 items-center h-[calc(100vh-6rem)] p-4 lg:px-20 xl:px-40 mb-5">
+    <div className="relative flex flex-col md:flex-row gap-5 md:gap-8 items-center h-[calc(100vh-6rem)] p-4 lg:px-20 xl:px-40 mb-5">
 
       {/* Image container */}
       <div className="w-full h-1/2 relative lg:h-3/4">
@@ -34,6 +35,7 @@ const SingleProductPage = async ({
         <p className="text-red-500">{product.description}</p>
         <Price product={product} />
       </div>
+      <DeleteButton id={product.id} />
     </div>
   );
 };
